@@ -6,7 +6,12 @@ const getUserCharacters = async (req, res) => {
   try {
     const charactersList = await CharacterList.findAll({where: {user_id: userId}})
 
-    const characters =  charactersList.forEach(async (character) => await Character.findById(character.character_id))
+    let characters = []
+
+    for (const character of charactersList) {
+      const char = await Character.findById(character.character_id)
+      characters = [...characters, char]
+    }
 
     res.status(200).json(characters)
   } catch (err) {
@@ -33,7 +38,6 @@ const createUserCharacter = async (req, res) => {
 
 const deleteUserCharacter = async (req, res) => {
   const characterId = req.params.id
-  const userId = req.user.id
 
   try {
     await Character.findByIdAndDelete(characterId)

@@ -3,5 +3,7 @@ const {getUserCharacters, createUserCharacter, deleteUserCharacter} = require('.
 const {requireAuth} = require('../middleware/auth.middleware')
 
 router.get('/', requireAuth, getUserCharacters)
-router.post('/', requireAuth, createUserCharacter)
+router.post('/', requireAuth,  createUserCharacter)
 router.delete('/:id', deleteUserCharacter)
+
+module.exports = router

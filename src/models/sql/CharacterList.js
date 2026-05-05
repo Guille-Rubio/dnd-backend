@@ -6,6 +6,7 @@ const CharacterList = sequelize.define(
     {
         id: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             primaryKey: true,
         },
         character_id: {
