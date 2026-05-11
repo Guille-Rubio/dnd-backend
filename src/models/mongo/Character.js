@@ -31,7 +31,7 @@ const characterSchema = new mongoose.Schema({
     type: Number,
     default: 2
   },
-  proficencies: [{pro: String}],
+  proficiencies: [{pro: String}],
   equipment: [{equip: String}],
   life: {
     type: Number,
@@ -41,16 +41,12 @@ const characterSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  dc: {
-    type: Number
-  },
   level: {
     type: Number,
     required: true
   },
-  backgroun: {
-    type: String
-  }
+  traits: [{trait: String}],
+  lenguages: [{lenguage: String}]
 
 })
 
