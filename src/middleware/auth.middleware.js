@@ -4,7 +4,7 @@ const getTokenFromRequest = (req) => {
   const authHeader = req.headers.authorization
   const bearerToken = authHeader?.startsWith("Bearer ") ? authHeader.split(" ")[1] : null
 
-  console.log(req.cookies?.accessToken)
+  console.log(req.cookies)
   return req.cookies?.accessToken || bearerToken
 }
 
