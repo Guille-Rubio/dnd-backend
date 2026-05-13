@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const morgan =require('morgan')
 const cookieParser = require("cookie-parser")
 const cors = require('cors')
 
@@ -11,6 +12,7 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 const app = express()
 
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
