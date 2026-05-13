@@ -17,8 +17,8 @@ const requireAuth = (req, res, next) => {
   }
 
   try {
-    req.user = verifyAccessToken(token);
     console.log(req.user)
+    req.user = verifyAccessToken(token);
     return next();
   } catch (error) {
     return res.status(403).json({ message: "Forbidden" });
