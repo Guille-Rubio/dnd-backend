@@ -11,7 +11,6 @@ const characterSchema = new mongoose.Schema({
   },
   sub_race: {
     type: String,
-    required: true
   },
   class: {
     type: String,
@@ -26,13 +25,13 @@ const characterSchema = new mongoose.Schema({
   }, val: {
     type: Number,
   }}],
-  saving_throws: [{atribute: String}],
+  saving_throws: [{atribute: {type: String}}],
   proficency: {
     type: Number,
     default: 2
   },
-  proficiencies: [{pro: String}],
-  equipment: [{equip: String}],
+  proficiencies: [{pro: {type: String}}],
+  equipment: [{equip: {type: String}}],
   life: {
     type: Number,
     required: true
@@ -45,8 +44,8 @@ const characterSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  traits: [{trait: String}],
-  lenguages: [{lenguage: String}]
+  traits: [{trait: {type: String}}],
+  lenguages: [{lenguage: {type: String}}]
 
 })
 
