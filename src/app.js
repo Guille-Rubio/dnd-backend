@@ -12,7 +12,11 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 const app = express()
 morgan.token('auth', (req) => req.headers['authorization'] || 'No Auth Header');
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms :auth'))
+morgan.token('cookies', (req) => {
+  // req.cookies is an object from cookie-parser
+  return JSON.stringify(req.cookies);
+});
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :auth :cookies'))
 app.use(express.json())
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
