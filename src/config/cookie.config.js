@@ -1,5 +1,5 @@
 const accessTokenCookieOptions = {
-  httpOnly: true,
+  httpOnly: false,
   sameSite: "lax",
   secure: true,
   maxAge: 60 * 60 * 1000,
