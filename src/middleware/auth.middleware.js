@@ -1,10 +1,10 @@
 const { verifyAccessToken } = require('../services/auth.service')
 
 const getTokenFromRequest = (req) => {
-  const authHeader = req.headers.authorization
+  const authHeader = req.headers.authorization || req.headers.Authorization
   const bearerToken = authHeader?.startsWith("Bearer ") ? authHeader.split(" ")[1] : null
 
-  console.log(req.headers)
+  
   return req.cookies?.accessToken || bearerToken
 }
 
