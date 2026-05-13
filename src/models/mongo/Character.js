@@ -25,7 +25,9 @@ const characterSchema = new mongoose.Schema({
   }, val: {
     type: Number,
   }}],
-  saving_throws: [{atribute: {type: String}}],
+  saving_throws: {
+    type: [String]
+  },
   proficency: {
     type: Number,
     default: 2
