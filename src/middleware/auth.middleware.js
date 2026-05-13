@@ -9,6 +9,7 @@ const getTokenFromRequest = (req) => {
 
 const requireAuth = (req, res, next) => {
   const token = getTokenFromRequest(req)
+  console.log(token)
 
   if (!token) {
     return res.status(401).json({ message: "Unauthorized" });

@@ -3,7 +3,7 @@ const app = require('./app')
 const mongo = require('./config/mongo.config')
 const sequelize = require('./config/sql.config')
 
-const PORT = 3000
+const PORT = 4000
 
 async function startServer() {
   try {
